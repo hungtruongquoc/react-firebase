@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import {useSignup} from "../../hooks/useSignup";
 
-const SignupForm = () => {
+const SignupForm = ({onSubmit, loading, error, submitButtonText}) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: ''
     });
-    const {error, loading, signup} = useSignup()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,7 +18,7 @@ const SignupForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission
-        signup(formData.email, formData.password, formData.name)
+        onSubmit(formData.email, formData.password, formData.name)
     };
 
     return (
@@ -58,7 +56,7 @@ const SignupForm = () => {
                     required
                 />
             </div>
-            <button type="submit">Sign Up</button>
+            <button type="submit">{submitButtonText}</button>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
         </form>
