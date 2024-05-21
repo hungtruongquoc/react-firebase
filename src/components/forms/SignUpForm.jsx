@@ -31,7 +31,6 @@ const SignupForm = ({onSubmit, loading, error, submitButtonText}) => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
                 />
             </div>
             <div>
