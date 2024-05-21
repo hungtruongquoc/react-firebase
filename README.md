@@ -43,6 +43,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ## Procedure
 * Install Firebase SDK
 * Create a .env file in the root directory
+* Need to rebuild React app after adding .env file
 ## Install Firebase SDK
 
 ```npm install firebase```
