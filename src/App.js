@@ -1,14 +1,15 @@
 import './App.css';
-import SignUpForm from "./components/forms/SignUpForm";
 import {useLogout} from "./hooks/useLogout";
-import {useLogin} from "./hooks/useLogin";
 import {useSignup} from "./hooks/useSignup";
 import {useFirestore} from "./hooks/useFirestore";
 import {useAuthContext} from "./hooks/useAuthContext";
+import LoginPage from "./features/Auth/pages/LoginPage";
+import SignUpPage from "./features/Auth/pages/SignUpPage";
+
+
 
 function App() {
     const {logout} = useLogout()
-    const {login, error: loginError, loading: loginLoading} = useLogin()
     const {error, loading, signup} = useSignup()
     const {addDocument, response} = useFirestore('users')
     const {user} = useAuthContext()
@@ -19,16 +20,14 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Sign Up Form</h1>
-            <SignUpForm onSubmit={signup} error={error} loading={loading} submitButtonText={"Sign Up"} />
+            <SignUpPage/>
             <br/>
             <button onClick={logout}>Log out</button>
-            <h1>Login Form</h1>
-            <SignUpForm onSubmit={login} error={loginError} loading={loginLoading} submitButtonText={"Login"} />
+            {user ? null : <LoginPage/>}
             <br/>
             <button onClick={handleAddUsers}>Add users</button>
         </div>
-  );
+    );
 }
 
 export default App;
