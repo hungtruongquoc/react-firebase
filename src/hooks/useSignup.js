@@ -36,6 +36,7 @@ export const useSignup = () => {
     useEffect(() => {
         // This is called when the component is unmounted
         return () => {
+            debugger
             setIsCancelled(true)
         }
     }, []);

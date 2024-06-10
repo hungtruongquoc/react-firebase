@@ -36,8 +36,7 @@ export const useFirestore = (users) => {
             const addedDoc = await addDoc(ref, {...doc, createdAt})
             if (isCancelled) return
             dispatch({type: 'ADDED_DOC', payload: addedDoc})
-        }
-        catch (error) {
+        } catch (error) {
             if (isCancelled) return
             dispatch({type: 'ERROR', payload: error.message})
         }
