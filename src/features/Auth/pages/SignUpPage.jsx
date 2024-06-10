@@ -1,8 +1,9 @@
-import {useSignup} from "../../../hooks/useSignup";
-import SignUpForm from "../../../components/forms/SignUpForm";
+import { useSignup } from '../../../hooks/useSignup'
+import SignUpForm from '../../../components/forms/SignUpForm'
+import React from 'react'
 
 export default () => {
-    const {signup, error, loading} = useSignup()
+    const { signup, error, loading } = useSignup()
     return (
         <>
             <h1>Sign Up Form</h1>
@@ -10,9 +11,8 @@ export default () => {
                 onSubmit={signup}
                 error={error}
                 loading={loading}
-                submitButtonText={"Sign Up"}
+                submitButtonText={'Sign Up'}
             />
         </>
     )
-
 }
